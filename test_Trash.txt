@@ -1,0 +1,10 @@
+          <Icon>
+            <href>https://maps.google.com/mapfiles/kml/pal3/icon18.png</href>
+          </Icon>
+          <Icon>
+            <href>https://maps.google.com/mapfiles/kml/pal2/icon28.png</href>
+          </Icon>
+          <Icon>
+            <href>https://maps.google.com/mapfiles/kml/pal2/icon30.png</href>
+          </Icon>
+          <altitudeMode>relativeToGround</altitudeMode>

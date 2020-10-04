@@ -8,9 +8,6 @@
       <Style id="style-Shopping">
         <IconStyle>
           <scale>0.7</scale>
-          <Icon>
-            <href>https://maps.google.com/mapfiles/kml/pal3/icon18.png</href>
-          </Icon>
         </IconStyle>
       </Style>
       <Placemark>
@@ -26,9 +23,6 @@
       <Style id="style-Hotel">
         <IconStyle>
           <scale>0.7</scale>
-          <Icon>
-            <href>https://maps.google.com/mapfiles/kml/pal2/icon28.png</href>
-          </Icon>
         </IconStyle>
       </Style>
       <Placemark>
@@ -44,9 +38,6 @@
       <Style id="style-Cinema">
         <IconStyle>
           <scale>0.7</scale>
-          <Icon>
-            <href>https://maps.google.com/mapfiles/kml/pal2/icon30.png</href>
-          </Icon>
         </IconStyle>
       </Style>
       <Placemark>
@@ -72,7 +63,6 @@
         <name>Broadway</name>
         <styleUrl>#style-Broadway</styleUrl>
         <LineString>
-          <altitudeMode>relativeToGround</altitudeMode>
           <coordinates>-73.9907,40.7347,0 -73.9914,40.7317,0 -74.0132,40.7058,0</coordinates>
         </LineString>
       </Placemark>

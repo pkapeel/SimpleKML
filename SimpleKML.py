@@ -1,27 +1,62 @@
 # CREATE A COPY OF THE .KML FILE WHICH IS TO BE USED
 import shutil
+import re
 
 try:
     kmlFile = input('Enter Name of .KML File: ')
     SimpleKML = kmlFile.split('.')[0] + '_Simple.kml'
-    shutil.copy(kmlFile, SimpleKML)
+    TrashTXT = kmlFile.split('.')[0] + '_Trash.txt'
 except:
     print(kmlFile, 'Does Not Exist')
 
 # READ THE NEW COPIED FILE ONE LINE AT A TIME
 
-fin = open(SimpleKML, 'rt')
+fin = open(kmlFile, 'rt')
 lines = fin.readlines()
 fin.close()
 print(len(lines), 'Lines Read')
+fout1 = open(SimpleKML, 'wt')
+fout2 = open(TrashTXT, 'wt')
 
 # CREATE A LIST OF OBJECTS TO KEEP
 
-keep = ['xml', 'kml', 'Document', 'name', 'Style', 'Folder', 'Placemark', 
-        'Point', 'coordinates', 'styleURL', 'color', 'LineStyle', 'width', 'LineString']
+keep = ['<kml', 
+        'kml>', 
+        'xml ', 
+        #'Document', 
+        'name', 
+        'Style', 
+        'Folder', 
+        'Placemark', 
+        'Point', 
+        'coordinates', 
+        'styleUrl', 
+        'color>', 
+        'LineStyle', 
+        'width>', 
+        'LineString',
+        'scale']
 
-# DELETE LINES THAT DO NOT CONTAIN OBJECTS TO KEEP
+# DELETE LINES THAT DO NOT CONTAIN KEYWORDS TO KEEP
 
-for line in lines:
-    for feature in keep:
-        if 
+i = 0
+while i < len(lines):
+    #print('Checking Line: ', line[i])
+    for key in keep:
+        #print('Searching for: ', key)
+        m = re.search(key, lines[i])
+        #print(m)
+        if m:
+            fout1.write(lines[i])
+            #print('Wrote to File: ', line[i])
+            i += 1
+            break
+        elif key == keep[-1]:
+            #print('Line Removed: ', lines[i])
+            fout2.write(lines[i])
+            del lines[i]
+
+# WRITE THE NEW FILE
+fout1.close()
+fout2.close()
+print(len(lines), 'Lines Remaining')
