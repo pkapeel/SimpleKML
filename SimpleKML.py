@@ -35,7 +35,12 @@ keep = ['<kml',
         'LineStyle', 
         'width>', 
         'LineString',
-        'scale']
+        'scale',
+        'MultiGeometry',
+        'Polygon',
+        'outerBoundaryIs',
+        'LinearRing',
+        '-96']
 
 # DELETE LINES THAT DO NOT CONTAIN KEYWORDS TO KEEP
 
