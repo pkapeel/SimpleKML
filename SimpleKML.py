@@ -10,7 +10,6 @@ except:
     print(kmlFile, 'Does Not Exist')
 
 # READ THE NEW COPIED FILE ONE LINE AT A TIME
-
 fin = open(kmlFile, 'rt')
 lines = fin.readlines()
 fin.close()
@@ -19,11 +18,10 @@ fout1 = open(SimpleKML, 'wt')
 fout2 = open(TrashTXT, 'wt')
 
 # CREATE A LIST OF OBJECTS TO KEEP
-
 keep = ['<kml', 
         'kml>', 
         'xml ', 
-        #'Document', 
+        #'Document',    # CAUSES ERROR!
         'name', 
         'Style', 
         'Folder', 
@@ -40,10 +38,23 @@ keep = ['<kml',
         'Polygon',
         'outerBoundaryIs',
         'LinearRing',
-        '-96']
+        # VERIFIED THE ABOVE WORKED ON TRACCAR SERVER
+        'innerBoundaryIs',
+        'href',
+        'Icon',
+        #'open',    # CAUSES ERROR!
+        'Snippet',
+        'description',
+        'head',
+        'META',
+        'meta',
+        'body',
+        'table',
+        'tr',
+        'td',
+        '-96']  # NOT SO ELEGANT WAY TO KEEP LINES WITH ONLY NORTHING/EASTING NUMBERS
 
 # DELETE LINES THAT DO NOT CONTAIN KEYWORDS TO KEEP
-
 i = 0
 while i < len(lines):
     #print('Checking Line: ', line[i])
